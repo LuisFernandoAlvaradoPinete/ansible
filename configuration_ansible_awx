@@ -23,4 +23,14 @@ yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce
 #Installing docker.
 yum install docker-ce -y
 
+#Start docker service.
+systemctl start docker
 
+#Enable docker service.
+systemctl enable docker
+
+#Cloning the AWX repo.
+git clone https://github.com/ansible/awx.git
+cd awx/
+git clone https://github.com/ansible/awx-logos.git
+pwd
