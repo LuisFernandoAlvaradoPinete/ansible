@@ -1,1 +1,26 @@
+#Check the SELinux configuration.
+sestatus
+
+#Disable firewalld.
+systemctl stop firewalld
+systemctl disable firewalld
+
+#Adding the host entries in /etc/hosts
+cat /etc/hosts
+result -> 192.168.1.25 awx.sunil.cc awx
+          192.168.1.21 client1.sunil.cc client1
+          192.168.1.22 client2.sunil.cc client2
+          
+#Enable epel repo.
+yum install -y epel-release
+
+#Install the packages.
+yum install -y yum-utils device-mapper-persistent-data lvm2 ansible git python-devel python-pip python-docker-py vim-enhanced
+
+#Configure docker ce stable repository.
+yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+
+#Installing docker.
+yum install docker-ce -y
+
 
